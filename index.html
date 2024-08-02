@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Grid Tool</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Image Grid Tool</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <div class="left-section">
+            <h2>Upload and Position Image</h2>
+            <input type="file" id="imageUpload" accept="image/*">
+            <div id="imagePreview"></div>
+            <button id="positionButton">Position Image</button>
+        </div>
+        <div class="right-section">
+            <h2>Grid Settings</h2>
+            <label for="gridColor">Grid Color:</label>
+            <input type="color" id="gridColor" name="gridColor">
+            <label for="gridSpacing">Grid Spacing:</label>
+            <input type="number" id="gridSpacing" name="gridSpacing" min="1" max="100">
+        </div>
+    </main>
+    <footer>
+        <button id="downloadButton">Download Image with Grid</button>
+        <button id="resetButton">Reset</button>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
