@@ -19,22 +19,30 @@ document.getElementById('downloadButton').addEventListener('click', function() {
     const context = canvas.getContext('2d');
     const img = document.getElementById('uploadedImage');
     const gridColor = document.getElementById('gridColor').value;
-    const gridSpacing = document.getElementById('gridSpacing').value;
+    const gridSpacing = parseInt(document.getElementById('gridSpacing').value);
     
     canvas.width = img.width;
     canvas.height = img.height;
     context.drawImage(img, 0, 0);
 
     context.strokeStyle = gridColor;
-    for (let x = 0; x < canvas.width; x += parseInt(gridSpacing)) {
+    context.lineWidth = 1;
+    
+    // Draw vertical grid lines
+    for (let x = gridSpacing; x < canvas.width; x += gridSpacing) {
+        context.beginPath();
         context.moveTo(x, 0);
         context.lineTo(x, canvas.height);
+        context.stroke();
     }
-    for (let y = 0; y < canvas.height; y += parseInt(gridSpacing)) {
+    
+    // Draw horizontal grid lines
+    for (let y = gridSpacing; y < canvas.height; y += gridSpacing) {
+        context.beginPath();
         context.moveTo(0, y);
         context.lineTo(canvas.width, y);
+        context.stroke();
     }
-    context.stroke();
 
     const link = document.createElement('a');
     link.download = 'image_with_grid.png';
